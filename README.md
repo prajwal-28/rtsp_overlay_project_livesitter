@@ -131,9 +131,7 @@ ffmpeg -re -stream_loop -1 -i sample.mp4 -c copy -f rtsp rtsp://localhost:8554/m
 
 ### 3️⃣ Convert RTSP to HLS
 ```bash
-ffmpeg -rtsp_transport tcp -i rtsp://localhost:8554/mystream \
--c:v libx264 -pix_fmt yuv420p -preset veryfast -g 60 \
--f hls -hls_time 2 -hls_list_size 6 streaming/hls/stream.m3u8
+ffmpeg -rtsp_transport tcp -i rtsp://localhost:8554/mystream -c:v libx264 -pix_fmt yuv420p -preset veryfast -g 60 -f hls -hls_time 2 -hls_list_size 6 streaming/hls/stream.m3u8
 ```
 
 ### 4️⃣ Start HLS Server
